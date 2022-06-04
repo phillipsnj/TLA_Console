@@ -7,7 +7,7 @@ import solo_uart
 import solo_widgets
 import json
 
-print("Running 0.2")
+print("Running 0.3")
 
 class soloBasic(tk.Tk):
     def __init__(self, *args, **kwargs):
