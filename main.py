@@ -5,12 +5,16 @@ import serial
 import time
 import solo_uart
 import solo_widgets
+import json
 
 print("Running 0.2")
 
 class soloBasic(tk.Tk):
     def __init__(self, port,  *args, **kwargs):
         super().__init__(*args, **kwargs)
+        with open('config.json') as f:
+            self.data = json.load(f)
+        print(f"Config {str(self.data)}")
         self.UART = solo_uart.soloUART(port, self.processInput, self.processOutput)
         self.UART.start()
         self.tlas = {}

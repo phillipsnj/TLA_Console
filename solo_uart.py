@@ -13,7 +13,7 @@ class soloUART(threading.Thread):
         self.ser = serial.Serial(port, 9600)
         com_ports = list(comports())
         for port in com_ports:
-            print(f"Port :"+str(port[0])+" Description: "+str(port[1])+" hwid: "+str(port[2]))
+            print(f"Port :"+str(port[0])+" Description: "+str(port[1])+" VID:PID "+str(port[2])[12:21])
 
         #self.ser.write(str.encode("TYP\n"))
         #self.ser.write("TYP\n")
