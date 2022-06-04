@@ -6,7 +6,7 @@ import time
 import solo_uart
 import solo_widgets
 
-print("Running")
+print("Running 0.2")
 
 class soloBasic(tk.Tk):
     def __init__(self, port,  *args, **kwargs):
