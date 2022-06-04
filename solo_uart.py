@@ -1,6 +1,7 @@
 import threading
 import serial
 import time
+from serial.tools.list_ports import comports
 
 
 class soloUART(threading.Thread):
@@ -10,6 +11,9 @@ class soloUART(threading.Thread):
         self.outfunction = outfunction
         self.vars = []
         self.ser = serial.Serial(port, 9600)
+        com_ports = list(comports())
+        for port in com_ports:
+            print(f"Port :"+str(port[0])+" Description: "+str(port[1])+" hwid: "+str(port[2]))
         #self.ser.write(str.encode("TYP\n"))
         #self.ser.write("TYP\n")
 
