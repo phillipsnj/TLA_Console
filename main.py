@@ -10,12 +10,12 @@ import json
 print("Running 0.2")
 
 class soloBasic(tk.Tk):
-    def __init__(self, port,  *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         with open('config.json') as f:
             self.data = json.load(f)
-        print(f"Config {str(self.data)}")
-        self.UART = solo_uart.soloUART(port, self.processInput, self.processOutput)
+        print(f"Config {str(self.data['port'])}")
+        self.UART = solo_uart.soloUART(self.data['port'], self.processInput, self.processOutput)
         self.UART.start()
         self.tlas = {}
         self.outText = tk.StringVar()
@@ -154,5 +154,5 @@ class soloBasic(tk.Tk):
 
 
 if __name__ == '__main__':
-    app = soloBasic('COM22')
+    app = soloBasic()
     app.mainloop()
